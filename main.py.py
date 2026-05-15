@@ -4,7 +4,7 @@ from PIL import Image
 
 st.set_page_config(page_title="AI Math Helper", layout="wide")
 
-st.title("🔢  Ms. Sapna's-Math AI Tutor")
+st.title("🔢  Mera Apna-Math AI Tutor")
 
 # --- API Key Management ---
 api_key = st.secrets.get("GEMINI_API_KEY")
