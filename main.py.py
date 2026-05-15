@@ -35,7 +35,9 @@ if uploaded_file is not None:
             try:
                 genai.configure(api_key=api_key)
                 #model = genai.GenerativeModel('gemini-1.5-flash')
-                model = genai.GenerativeModel('gemini-1.5-flash-latest')
+                #model = genai.GenerativeModel('gemini-1.5-flash-latest')
+                # Instead of 'gemini-1.5-flash'
+                model = genai.GenerativeModel('models/gemini-1.5-flash')
                 with st.spinner('AI is checking the math...'):
                     prompt = "Identify the math problem in this image. Check if it is solved correctly. If there is a mistake, explain why and provide the correct step-by-step solution using LaTeX formatting."
                     response = model.generate_content([prompt, image])
