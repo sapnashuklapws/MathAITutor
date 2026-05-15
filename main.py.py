@@ -45,34 +45,3 @@ if uploaded_file is not None:
             except Exception as e:
                 st.error(f"Error: {e}")
 
-2. The requirements.txt File
-
-Streamlit Cloud needs this file to know which libraries to install. Create a
-file named requirements.txt in the same folder:
-
-streamlit
-google-generativeai
-Pillow
-
-3. How to Deploy to Streamlit Cloud
-
-1.  GitHub: Push your app.py and requirements.txt to a GitHub repository.
-2.  Streamlit Cloud:
-      - Go to share.streamlit.io and connect your GitHub.
-      - Select your repository and click Deploy.
-3.  Add your API Key to Secrets:
-      - Once the app starts deploying, click the Settings button (gear icon) in
-        the bottom right of the Streamlit Cloud dashboard.
-      - Go to Secrets.
-      - Paste your key in this format:
-        GEMINI_API_KEY = "your_actual_api_key_here"
-      - Click Save. The app will automatically reboot and use the key.
-
-Why do it this way?
-
-  - Security: Your API key stays hidden from the public (even if your GitHub
-    repo is public).
-  - Ease of Use: You don't have to re-enter your key every time you refresh the
-    page.
-  - Portability: The app will work locally and in the cloud without changing the
-    code.
