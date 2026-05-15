@@ -57,5 +57,23 @@ if api_key:
                     st.error(f"Error: {e}")
                     if "Quota" in str(e):
                         st.info("Your region might have a 'Limit 0' quota for this model. Try a different API key or a VPN set to USA.")
+        if st.button("Check Physics"):
+            if not target_model:
+                st.error("No compatible models found for this API key.")
+            else:
+                try:
+                    with st.spinner('AI is analyzing...'):
+                        model = genai.GenerativeModel(target_model)
+                        prompt = "Look at this Physics problem. Identify it and check if the solution is correct. If wrong, explain why and give the correct step-by-step solution using LaTeX."
+                        response = model.generate_content([prompt, img])
+                        
+                        with col2:
+                            st.subheader("Analysis")
+                            st.markdown(response.text)
+                except Exception as e:
+                    st.error(f"Error: {e}")
+                    if "Quota" in str(e):
+                        st.info("Your region might have a 'Limit 0' quota for this model. Try a different API key or a VPN set to USA.")
+
 else:
     st.warning("Please enter your API Key in the sidebar.")
