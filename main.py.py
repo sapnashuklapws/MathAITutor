@@ -1,29 +1,30 @@
 import streamlit as st
-from google import genai  # Use the new library
+from google import genai  # Correct new library
 from PIL import Image
 
-# Setup the Page Layout
+# 1. Setup the Page Layout
 st.set_page_config(page_title="Math Tutor AI", layout="centered")
 st.title("🧠 Socratic Math Tutor")
 
-# Connect to the AI using the new SDK
-# Ensure your secret name in Streamlit matches "GEMINI_API_KEY"
+# 2. Connect to the AI
 client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
 
-# ... (rest of your file uploader code)
+# 3. Create the Uploader (THIS MUST COME FIRST)
+# This line creates the variable 'uploaded_file'
+uploaded_file = st.file_uploader("Upload your math work", type=["jpg", "png", "jpeg"])
 
+# 4. Now you can check if the file exists
 if uploaded_file:
     img = Image.open(uploaded_file)
-    # Note: 'use_container_width' is deprecated in 2026; use width='stretch'
-    st.image(img, caption="Your Work", width='stretch') 
+    st.image(img, caption="Your Work", width='stretch')
 
     if st.button("Check My Solution"):
         with st.spinner("Analyzing..."):
-            prompt = "You are a Socratic Math Tutor. [Your full prompt here]"
+            prompt = "You are a Socratic Math Tutor..."
             
-            # Use the updated method call for the new library
+            # Use the correct method for the new library
             response = client.models.generate_content(
-                model="gemini-2.0-flash", # Use a current 2026 model name
+                model="gemini-2.0-flash", 
                 contents=[prompt, img]
             )
             
