@@ -2,7 +2,7 @@ import streamlit as st
 import google.generativeai as genai
 from PIL import Image
 
-st.set_page_config(page_title="AI Math Helper", layout="wide")
+st.set_page_config(page_title="AI Math/Physics Helper", layout="wide")
 
 st.title("🔢  My Personal AI Tutor, Sapna poora hua!")
 
