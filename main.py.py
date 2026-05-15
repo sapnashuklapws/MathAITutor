@@ -2,9 +2,9 @@ import streamlit as st
 import google.generativeai as genai
 from PIL import Image
 
-st.set_page_config(page_title="AI Math Solver", layout="wide")
+st.set_page_config(page_title="AI Math Helper", layout="wide")
 
-st.title("🔢 Universal Math Solver")
+st.title("🔢  Right/Wrong- Solve | Upload | Check ")
 
 # --- API Key Management ---
 api_key = st.secrets.get("GEMINI_API_KEY")
