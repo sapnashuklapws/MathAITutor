@@ -10,7 +10,7 @@ st.write("Upload your math work, and I'll help you find your mistakes!")
 # 2. Connect to the AI (Replace with your actual key for testing)
 # Note: For the Cloud version, we will use a safer method!
 API_KEY = "YOUR_PASTE_KEY_HERE" 
-genai.configure(api_key=API_KEY)
+genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 model = genai.GenerativeModel('gemini-1.5-flash')
 
 # 3. Create the Image Uploader
